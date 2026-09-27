@@ -13,6 +13,11 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
+      - name: Setup network
+        run: |
+          docker network create --driver bridge SoftwareMethods1
+          docker pull mongo
+          docker run -d --name Mongo-DB-Server --network SoftwareMethods1 mongo
       - name: Compile with Maven
         run: mvn compile
       - name: Build Docker Image
