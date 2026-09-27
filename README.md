@@ -1,2 +1,2 @@
 # Software-Engineering-Methods-Coursework-1
-[![LICENSE](https://img.shields.io/github/license/CryptEneUni/Software-Engineering-Methods-Coursework-1.svg?style=flat-square)](https://github.com/CryptEneUni/Software-Engineering-Methods-Coursework-1/blob/main/LICENSE)
+[![LICENSE]https://img.shields.io/github/license/CryptEneUni/devops.svg?style=flat-square)](https://github.com/CryptEneUni/Software-Engineering-Methods-Coursework-1/blob/main/LICENSE)
