@@ -1,2 +1,2 @@
 # Software-Engineering-Methods-Coursework-1
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/CryptEneUni/Software-Engineering-Methods-Coursework-1/blob/main/LICENSE)
+[![LICENSE](https://img.shields.io/github/CryptEneUni/Software-Engineering-Methods-Coursework-1.svg?style=flat-square)](https://github.com/CryptEneUni/Software-Engineering-Methods-Coursework-1/blob/main/LICENSE)
