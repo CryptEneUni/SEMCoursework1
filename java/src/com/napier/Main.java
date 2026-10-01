@@ -14,6 +14,10 @@ public class Main {
 
         // Connection to the database
         Connection con = null;
+        String username = "root";
+        String password = "password";
+        String url = "jdbc:mysql://db:3306/";
+        String dbName = "world";
         int retries = 10;
         for (int i = 0; i < retries; ++i) {
             System.out.println("Connecting to database...");
@@ -21,7 +25,7 @@ public class Main {
                 // Wait a bit for db to start
                 Thread.sleep(5000);
                 // Connect to database
-                con = DriverManager.getConnection("jdbc:mysql://db:3306/world?allowPublicKeyRetrieval=true&useSSL=false", "root", "example");
+                con = DriverManager.getConnection(url + dbName + "?allowPublicKeyRetrieval=true&useSSL=false", username, password);
                 System.out.print("Successfully connected");
                 // Wait a bit
                 Thread.sleep(5000);

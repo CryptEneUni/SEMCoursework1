@@ -21,5 +21,7 @@ jobs:
         run: docker run --name sem-cw-container -d sem-cw-image
       - name: view logs
         run: docker logs -f sem-cw-container
+      - name: Build docker compose
+        run: docker compose build
       - name: Run docker compose
         run: docker compose up --abort-on-container-exit
