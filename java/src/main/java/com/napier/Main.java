@@ -10,6 +10,8 @@ public class Main {
 
         MongoClient mongoClient = new MongoClient("Mongo-DB-Server");
 
+
+
         MongoDatabase database = mongoClient.getDatabase("mydb");
 
         System.out.println("done.");
