@@ -1,6 +1,8 @@
 package com.napier;
 
 
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -16,10 +18,14 @@ public class Main {
 
         Database db = new Database();
         db.startConnection(username, password, url, dbName);
-        ArrayList<Country> countrys = db.countriesInWorldDesc();
-        for (Country country : countrys){
-            System.out.println(country);
-        }
+        if (db.getConnection() == null) {return;}
+
+        //runs a country query with the query stored in querys.countriesInWorldDesc
+        ArrayList<Country> countriesInWorldDescOut = db.countryQuery(Querys.countriesInWorldDesc);
+
+        for (Country country : countriesInWorldDescOut){
+            System.out.println(country);}
+
         db.closeConnection();
     }
 }

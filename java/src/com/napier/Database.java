@@ -20,7 +20,6 @@ public class Database {
     /**
      * Tries to establish a connection to a sql server
      * using username, password, url and database name.
-     * returns a connection, or null if it fails.
      */
     public void startConnection(String username, String password, String url, String dbName) {
         //Load Database driver
@@ -73,13 +72,12 @@ public class Database {
         }
     }
 
-    public ArrayList<Country> countriesInWorldDesc(){
+    /**
+     *uses the querystring to run a sql query, then returns an array of the results
+     */
+    public ArrayList<Country> countryQuery(String queryString){
         try {
             Statement query = connection.createStatement();
-            String queryString =
-                    "SELECT Name, Population, Code, Continent, Capital, Region "
-                    +"FROM country "
-                    +"ORDER BY Population DESC; ";
             ResultSet rset = query.executeQuery(queryString);
             ArrayList<Country> countries = new ArrayList<Country>();
             while (rset.next())
@@ -93,8 +91,8 @@ public class Database {
                 countries.add(new Country(name, population, code, captialId, continent, region));
             }
             return countries;
-
         }
+
         catch (Exception e) {
             System.out.print(e.getMessage());
         }
