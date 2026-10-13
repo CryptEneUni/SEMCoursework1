@@ -1,6 +1,7 @@
 package com.napier;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class Database {
     private Connection connection = null;
@@ -10,7 +11,6 @@ public class Database {
     }
 
     public Database(){
-
     }
 
     public Database(String username, String password, String url, String dbName){
@@ -73,14 +73,31 @@ public class Database {
         }
     }
 
-    public String countriesInWorldDesc(){
+    public ArrayList<Country> countriesInWorldDesc(){
         try {
             Statement query = connection.createStatement();
-            String queryString = "";
+            String queryString =
+                    "SELECT Name, Population, Code, Continent, Capital, Region "
+                    +"FROM country "
+                    +"ORDER BY Population DESC; ";
             ResultSet rset = query.executeQuery(queryString);
+            ArrayList<Country> countries = new ArrayList<Country>();
+            while (rset.next())
+            {
+                String name = rset.getString("country.Name");
+                int population = rset.getInt("country.Population");
+                String code = rset.getString("country.Code");
+                int captialId = rset.getInt("country.Capital");
+                String continent = rset.getString("country.Continent");
+                String region = rset.getString("country.Region");
+                countries.add(new Country(name, population, code, captialId, continent, region));
+            }
+            return countries;
 
         }
-        catch (Exception e) {}
-        return "a";
+        catch (Exception e) {
+            System.out.print(e.getMessage());
+        }
+        return null;
     }
 }

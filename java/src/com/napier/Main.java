@@ -1,6 +1,8 @@
 package com.napier;
 
 
+import java.util.ArrayList;
+
 /**
  *main
  */
@@ -14,9 +16,10 @@ public class Main {
 
         Database db = new Database();
         db.startConnection(username, password, url, dbName);
-
-
-
+        ArrayList<Country> countrys = db.countriesInWorldDesc();
+        for (Country country : countrys){
+            System.out.println(country);
+        }
         db.closeConnection();
     }
 }
