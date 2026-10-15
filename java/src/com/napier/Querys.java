@@ -1,9 +1,12 @@
 package com.napier;
 
+/**
+ * Class of static strings to use in sql requests
+ */
 public class Querys {
-    public static String countriesInWorldDesc =
-            "SELECT Name, Population, Code, Continent, Capital, Region "
-            +"FROM country "
-            +"ORDER BY Population DESC; ";
+    /**
+     * Country request - returns all countries in the world in order of descending population
+     */
+    public static String countriesInWorldPopDesc =
+            "ORDER BY Population DESC; ";}
 
-}

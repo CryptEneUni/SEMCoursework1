@@ -10,6 +10,10 @@ import java.util.ArrayList;
  */
 
 public class Main {
+    /**
+     * Main file
+     * @param args not used
+     */
     public static void main(String[] args) {
         String username = "root";
         String password = "password";
@@ -21,7 +25,7 @@ public class Main {
         if (db.getConnection() == null) {return;}
 
         //runs a country query with the query stored in querys.countriesInWorldDesc
-        ArrayList<Country> countriesInWorldDescOut = db.countryQuery(Querys.countriesInWorldDesc);
+        ArrayList<Country> countriesInWorldDescOut = db.countryQuery(Querys.countriesInWorldPopDesc);
 
         for (Country country : countriesInWorldDescOut){
             System.out.println(country);}

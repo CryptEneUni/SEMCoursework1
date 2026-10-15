@@ -13,6 +13,13 @@ public class Database {
     public Database(){
     }
 
+    /**
+     * Constructor for DB
+     * @param username username String for login
+     * @param password password String for login
+     * @param url url String for login
+     * @param dbName database name String for login
+     */
     public Database(String username, String password, String url, String dbName){
         startConnection(username, password, url, dbName);
     }
@@ -20,6 +27,10 @@ public class Database {
     /**
      * Tries to establish a connection to a sql server
      * using username, password, url and database name.
+     * @param username username String for login
+     * @param password password String for login
+     * @param url url String for login
+     * @param dbName database name String for login
      */
     public void startConnection(String username, String password, String url, String dbName) {
         //Load Database driver
@@ -61,7 +72,7 @@ public class Database {
     }
 
     /**
-     * Closes the connection
+     * Closes the connection if there is one
      */
     public void closeConnection(){
         try {
@@ -73,12 +84,15 @@ public class Database {
     }
 
     /**
-     *uses the querystring to run a sql query, then returns an array of the results
+     *uses the querystring to run a sql query, then returns an array of the results. Country query only
+     * @param queryString SQL statement to select countries. EXCLUDE SELECT AND FROM LINES
+     * @return Array list populated with country classes
      */
     public ArrayList<Country> countryQuery(String queryString){
         try {
             Statement query = connection.createStatement();
-            ResultSet rset = query.executeQuery(queryString);
+            String queryStart = "SELECT Name, Population, Code, Continent, Capital, Region FROM country ";
+            ResultSet rset = query.executeQuery(queryStart + queryString);
             ArrayList<Country> countries = new ArrayList<Country>();
             while (rset.next())
             {
