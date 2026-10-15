@@ -1,9 +1,8 @@
 package com.napier;
 
-import javax.naming.Name;
-
 public class Population{
     private final String name;
+
     public String getName() {
         return name;}
 
