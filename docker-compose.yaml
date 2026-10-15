@@ -2,8 +2,9 @@ services:
   # Application Dockerfile is in same folder which is .
   app:
     build: .
+    pull_policy: build
 
-  # db is is db folder
+  # db is in db folder
   db:
     build: db/.
     restart: always
