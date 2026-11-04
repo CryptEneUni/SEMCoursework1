@@ -75,10 +75,11 @@ public class Database {
     /**
      *uses the querystring to run a sql query, then returns an array of the results
      */
-    public ArrayList<Country> countryQuery(String queryString, String WhereInput){
+    public ArrayList<Country> countryQuery(String queryString, String WhereInput, String listLength){
         try {
             Statement query = connection.createStatement();
-            String queryStringReplaced = queryString.replace("WHEREINPUT", WhereInput);
+            String limitStringReplaced = queryString.replace("LIMITINPUT", listLength);
+            String queryStringReplaced = limitStringReplaced.replace("WHEREINPUT", WhereInput);
             ResultSet rset = query.executeQuery(queryStringReplaced);
             ArrayList<Country> countries = new ArrayList<Country>();
             while (rset.next())
