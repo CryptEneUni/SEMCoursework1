@@ -21,9 +21,14 @@ public class Main {
         if (db.getConnection() == null) {return;}
 
         //runs a country query with the query stored in querys.countriesInWorldDesc
-        ArrayList<Country> countriesInWorldDescOut = db.countryQuery(Querys.countriesInWorldDesc);
+        ArrayList<Country> countriesInWorldDescOut = db.countryQuery(Querys.countriesInWorldDesc, "");
 
         for (Country country : countriesInWorldDescOut){
+            System.out.println(country);}
+
+        ArrayList<Country> countriesInContDescOut = db.countryQuery(Querys.countriesInContDesc, "'Asia'");
+
+        for (Country country : countriesInContDescOut){
             System.out.println(country);}
 
         db.closeConnection();

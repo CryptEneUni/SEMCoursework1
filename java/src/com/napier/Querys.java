@@ -6,4 +6,9 @@ public class Querys {
             +"FROM country "
             +"ORDER BY Population DESC; ";
 
+    public static String countriesInContDesc =
+            "SELECT Name, Population, Code, Continent, Capital, Region "
+            +"FROM country "
+            +"WHERE continent = WHEREINPUT "
+            +"ORDER BY Population DESC; ";
 }
