@@ -23,4 +23,24 @@ public class Querys {
                     +"FROM country "
                     +"ORDER BY Population DESC "
                     +"LIMIT LIMITINPUT; ";
+
+    public static String countriesInContLimited =
+            "SELECT Name, Population, Code, Continent, Capital, Region "
+                    +"FROM country "
+                    +"WHERE continent = WHEREINPUT "
+                    +"ORDER BY Population DESC "
+                    +"LIMIT LIMITINPUT; ";
+
+    public static String countriesInRegiLimited =
+            "SELECT Name, Population, Code, Continent, Capital, Region "
+            +"FROM country "
+            +"WHERE Region = WHEREINPUT "
+            +"ORDER BY Population DESC "
+            +"LIMIT LIMITINPUT; ";
+
+    public static String citysInContinentDesc =
+            "SELECT Name, Population, CountryCode, District "
+            +"FROM city "
+            +"ORDER BY Population DESC; ";
+
 }

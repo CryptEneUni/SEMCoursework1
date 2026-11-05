@@ -73,7 +73,11 @@ public class Database {
     }
 
     /**
-     *uses the querystring to run a sql query, then returns an array of the results
+     * uses the querystring to run a sql query, then returns an array of the resulting countries
+     * @param queryString String used as the SQL query
+     * @param WhereInput String that replaces the WHERE line in the query
+     * @param listLength String that replaces the LIMIT line in the query
+     * @return An arraylist of Countries
      */
     public ArrayList<Country> countryQuery(String queryString, String WhereInput, String listLength){
         try {
@@ -100,4 +104,37 @@ public class Database {
         }
         return null;
     }
+
+
+    /**
+     * uses the querystring to run a sql query, then returns an array of the resulting citys
+     * @param queryString String used as the SQL query
+     * @param WhereInput String that replaces the WHERE line in the query
+     * @param listLength String that replaces the LIMIT line in the query
+     * @return An arraylist of Citys
+     */
+    public ArrayList<City> cityQuery(String queryString, String WhereInput, String listLength){
+        try {
+            Statement query = connection.createStatement();
+            String limitStringReplaced = queryString.replace("LIMITINPUT", listLength);
+            String queryStringReplaced = limitStringReplaced.replace("WHEREINPUT", WhereInput);
+            ResultSet rset = query.executeQuery(queryStringReplaced);
+            ArrayList<City> citys = new ArrayList<City>();
+            while (rset.next())
+            {
+                String name = rset.getString("city.Name");
+                int population = rset.getInt("city.Population");
+                String country = rset.getString("city.CountryCode");
+                String district = rset.getString("city.District");
+                citys.add(new City(name, population, country, district));
+            }
+            return citys;
+        }
+
+        catch (Exception e) {
+            System.out.print(e.getMessage());
+        }
+        return null;
+    }
+
 }

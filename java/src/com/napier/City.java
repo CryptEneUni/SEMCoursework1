@@ -23,4 +23,9 @@ public class City{
         country = Country;
         district = District;
     }
+
+    @Override
+    public String toString() {
+        return "Name: " + name + " Population: " + population + " Country: " + country + " District: " + district;
+    }
 }
