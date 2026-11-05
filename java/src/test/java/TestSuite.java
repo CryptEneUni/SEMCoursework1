@@ -1,3 +1,5 @@
+package test.java;
+
 import com.napier.Country;
 import com.napier.Database;
 import com.napier.Main;
@@ -15,7 +17,7 @@ public class TestSuite {
     @BeforeAll
     static void init()
     {
-        db = Main.startDb("root", "password", "jdbc:mysql://localhost:3306/", "world");
+        db = Main.startDb("root", "password", "jdbc:mysql://127.0.0.1:3306/", "world");
     }
 
     @Test
