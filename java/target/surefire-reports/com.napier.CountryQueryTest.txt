@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.napier.CountryQueryTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 19.88 s <<< FAILURE! -- in com.napier.CountryQueryTest
+com.napier.CountryQueryTest.CountriesInWorld -- Time elapsed: 0.023 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "java.util.ArrayList.get(int)" because "countriesInWorldDescOut" is null
+	at com.napier.CountryQueryTest.CountriesInWorld(CountryQueryTest.java:22)
+
