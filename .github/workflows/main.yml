@@ -18,9 +18,7 @@ jobs:
       - name: Build docker compose
         run: docker compose build
       - name: Run docker compose
-        run: docker compose up --abort-on-container-exit --name sem-cw-container
-      - name: view logs
-        run: docker logs -f sem-cw-container
+        run: docker compose up --abort-on-container-exit
       - name: Unit Tests
         run: |
           docker compose up -d
