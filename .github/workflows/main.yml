@@ -26,7 +26,9 @@ jobs:
       - name: Run docker compose
         run: docker compose up --abort-on-container-exit
       - name: Unit Tests
-        run: mvn test
+        run: |
+          docker compose up --abort-on-container-exit
+          mvn test
       - name: Package and Run docker compose
         run: |
           mvn package -DskipTests
