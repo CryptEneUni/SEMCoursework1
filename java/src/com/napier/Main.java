@@ -1,6 +1,7 @@
 package com.napier;
 
 
+import javax.xml.crypto.Data;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -12,14 +13,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        String username = "root";
-        String password = "password";
-        String url = "jdbc:mysql://db:3306/";
-        String dbName = "world";
-
-        Database db = new Database();
-        db.startConnection(username, password, url, dbName);
-        if (db.getConnection() == null) {return;}
+        Database db = startDb("root", "password", "jdbc:mysql://db:3306/", "world");
 
         //runs a country query with the query stored in querys.countriesInWorldDesc
         ArrayList<Country> countriesInWorldDescOut = db.countryQuery(Querys.countriesInWorldDesc, "", "");
@@ -60,5 +54,10 @@ public class Main {
         System.out.println();
 
         db.closeConnection();
+    }
+    public static Database startDb(String name, String pass, String url, String dbName){
+        Database db = new Database();
+        db.startConnection(name, pass, url, dbName);
+        return db;
     }
 }
