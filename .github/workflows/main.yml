@@ -26,6 +26,6 @@ jobs:
       - name: Run docker compose
         run: docker compose up --abort-on-container-exit
       - name: Start database container
-        run: docker container run db
+        run: docker build -f /db .
       - name: Unit Tests
         run: mvn test
